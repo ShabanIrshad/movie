@@ -1,13 +1,102 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+body{
+  background-color: cadetblue;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.card{
+  border:1px solid black;
+  margin:10px auto;
+  width:75%;
+  height: 40vh;
+  display: flex;
+  background-color: white;
+}
+.star-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+.stars{
+  cursor: pointer;
+  /* display:flex; */
+  width:10px;
+  height:10px;
+}
+.main-star{
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+}
+.left{
+  
+  width:20%;
+  height:100%;
+  background-color: aquamarine;
+}
+.right{
+  margin: 10px;
+  padding: 10px;
+  background-color: burlywood;
+  width:80%;
+}
+.footer{
+  display: flex;
+ 
+}
+.f-left{
+  display: inline-flex;
+  padding: 10px;
+  width:50%;
+  margin: auto auto;
+  /* border: 1px solid red; */
+}
+.f-right{
+  padding: 10px;
+  /* border:1px solid red; */
+  width: 50%;
+}
+.f-right button{
+  cursor: pointer;
+  float:right;
+  padding: 5px;
+  margin: 5px;
+}
+.fav-btn{
+  background-color: rgba(4, 182, 114, 0.41);
+  color:white;
+  /* padding: 10px; */
+  width:30%;
+  font-weight: 600;
+}
+.un-fav-btn{
+  background-color: crimson;
+  color:white;
+  width:30%;
+  /* padding: 10px; */
+  font-weight: 600;
+}
+.add-btn{
+  padding: 10px;
+  font-weight: 700;
+  color:white;
+  width:30%;
+  background-color: darkolivegreen;
+}
+.rm-btn{
+  padding: 10px;
+  width:30%;
+  font-weight: 700;
+  background-color: brown;
+  color:white;
+}
+.f-left p{
+  padding: 10px;
+}
+.movie-list{
+  text-align: center;
+  background-color: rgb(140, 189, 191);
+  border: 1px dashed white ;
+}
+.card-show{
+  padding: 10px;
+  margin: 10px;
 }
