@@ -34,12 +34,12 @@ export default class MovieCard extends React.Component{
         
     }
     render(){
-        const {title,price,desc,rating,stars,fav,cart}=this.props.movie;
+        const {title,price,desc,rating,stars,fav,cart,img}=this.props.movie;
         return(
             <>
             <div className='card'>
                 <div className='left'>
-                    <img width='100%' height='100%' alt='any' src='https://www.tallengestore.com/cdn/shop/products/Joker_-_Joaquin_Phoenix_-_Hollywood_Action_Movie_Poster_4d1b0644-dd78-42f8-996a-5d0c5bdc21b5.jpg?v=1573629455'/>
+                    <img width='100%' height='100%' alt='any' src={img}/>
                 </div>
                 <div className='right'>
                    <h2 className='title'>{title}</h2>                   
