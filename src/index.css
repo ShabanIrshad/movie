@@ -91,11 +91,7 @@ body{
 .f-left p{
   padding: 10px;
 }
-.movie-list{
-  text-align: center;
-  background-color: rgb(140, 189, 191);
-  border: 1px dashed white ;
-}
+
 .card-show{
   padding: 10px;
   margin: 10px;

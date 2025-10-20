@@ -62,9 +62,6 @@ export default class MovieList extends Component{
     render(){
         return (
             <>
-            <div className='movie-list'>
-                <h1>Movie List</h1>
-            </div>
             <div className='card-show'>
                 {this.state.movies.map((movie,index)=><MovieCard key={index} movie={movie} addFavorite={this.addFav} addInCart={this.addCart}/>)}
                 
