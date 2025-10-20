@@ -13,7 +13,7 @@ export default class MovieList extends Component{
                     rating:8.9,
                     stars:4,
                     img:'https://upload.wikimedia.org/wikipedia/en/b/bc/The_Nun_II_%282023%29.jpg',
-                    fav:true,
+                    fav:false,
                     cart:false,
                 },{
                     title:'Joker',
@@ -22,7 +22,7 @@ export default class MovieList extends Component{
                     rating:7.5,
                     stars:3,
                     img:'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRkNeYGwWeQEwOoPhxW93QIeNUWnLmEvMPwTw9AlDBGN4uXjIAcOEwz2z2yZL8BpXHp3ZYyjQ',
-                    fav:true,
+                    fav:false,
                     cart:false,
                 },
                 {
@@ -32,23 +32,41 @@ export default class MovieList extends Component{
                     rating:8.9,
                     stars:5,
                     img:'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQluFl3GfQDXohBaH-xG3GuRi8T4MDIQPRpCqUGLiE5tXdXbUO0hRFwnshvzg07igEgGg7i',
-                    fav:true,
+                    fav:false,
                     cart:false,
                 }
             ]
         };
+       
 
+    }
+    //Handling function within Parent
+
+    addFav=(movie)=>{
+        let {movies} =this.state;
+        let mid=movies.indexOf(movie);
+        movies[mid].fav===true?movies[mid].fav=false:movies[mid].fav=true;
+        this.setState({
+            movies:movies,
+        })
+    }
+    addCart=(movie)=>{
+         let {movies} =this.state;
+        let mid=movies.indexOf(movie);
+        movies[mid].cart===true?movies[mid].cart=false:movies[mid].cart=true;
+        this.setState({
+            movies:movies,
+        })
     }
     
     render(){
-        // console.log(this.state.movies);
         return (
             <>
             <div className='movie-list'>
                 <h1>Movie List</h1>
             </div>
             <div className='card-show'>
-                {this.state.movies.map((movie)=><MovieCard movie={movie}/>)}
+                {this.state.movies.map((movie,index)=><MovieCard key={index} movie={movie} addFavorite={this.addFav} addInCart={this.addCart}/>)}
                 
                
             </div>

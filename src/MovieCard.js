@@ -1,39 +1,39 @@
 import React from 'react';
 
 export default class MovieCard extends React.Component{
-  
+    constructor(props){
+        super(props);
+        this.state={
+            movie:this.props.movie,
+        }
+    }
+    //Handling functions within child 
+    
     addStar=()=>{
-        if(this.state.stars>=5){
+        if(this.state.movie.stars>=5){
             return;
         }
+        let mv=this.state.movie;
+        mv.stars+=0.5;
         this.setState({
-            stars:this.state.stars+0.5,
+            movie:mv,
         })
-
+       
     }
     lessStar=()=>{
-        if(this.state.stars<=0){
+        if(this.state.movie.stars<=0){
             return;
         }
-        this.setState((prevState)=>{
-            return {
-                stars:prevState.stars-0.5,
-            }
+        let mv=this.state.movie;
+        mv.stars-=0.5;
+        this.setState({
+            movie:mv,
         })
 
     }
-    handleFav=()=>{
-        this.setState({
-            fav:!this.state.fav,
-        })
-    }
-    handleCart=()=>{
-        this.setState({
-            cart:!this.state.cart,
-        });
-        
-    }
+  
     render(){
+        // console.log(this.state);
         const {title,price,desc,rating,stars,fav,cart,img}=this.props.movie;
         return(
             <>
@@ -48,7 +48,7 @@ export default class MovieCard extends React.Component{
                    <hr></hr>
                    <div className='footer'>
                         <div className='f-left'>
-                            <p className='rating'><strong>Rating :&nbsp;{rating}</strong></p>
+                            <p className='rating'><strong>IMDB Rating :&nbsp;{rating}</strong></p>
                             <div className='star-div'>
                                 <img alt='star' className='stars' onClick={this.lessStar} src='https://cdn-icons-png.flaticon.com/128/2801/2801932.png'/>
                                 <img alt='star' className='main-star' src='https://cdn-icons-png.flaticon.com/128/616/616490.png'/>
@@ -58,8 +58,8 @@ export default class MovieCard extends React.Component{
                         </div>
                         <div className='f-right'>
                            
-                            <button className={cart?'rm-btn':'add-btn'} onClick={this.handleCart}>{cart?'Remove Cart':'Add to Cart'}</button>
-                             <button className={fav?'fav-btn':'un-fav-btn'} onClick={this.handleFav}>{fav?'Favorites':'un-Favorites'}</button>
+                            <button className={cart?'rm-btn':'add-btn'} onClick={()=>this.props.addInCart(this.props.movie)}>{cart?'Remove Cart':'Add to Cart'}</button>
+                             <button className={fav?'un-fav-btn':'fav-btn'} onClick={()=>this.props.addFavorite(this.props.movie)}>{fav?'un-Favorites':'Favorites'}</button>
                         </div>
                    </div>
                 </div>
